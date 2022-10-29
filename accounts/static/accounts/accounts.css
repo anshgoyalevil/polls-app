@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #e6e6ef;
+}
+nav{
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    padding: 0px 100px;
+    background-image: linear-gradient(#033747,#012733);    
+ }
+ nav .logo p{
+     font-size: 30px;
+     font-weight: bold;
+     float: left;
+     color: white;
+     text-transform: uppercase;
+     letter-spacing: 1.5px;    
+ }
+ .form-box{
+  width: 350px;
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 39%;
+  background-color: white;
+  border-radius: 15px;
+ }
+ .form-box h3{
+    text-align: center;
+    padding-top: 15px;
+    text-transform: uppercase;
+    font-size: 25px;
+ }
+ .form-box form{
+    width: 300px;
+    margin-left: 25px;
+ }
+ .form-box label{
+    display: flex;
+ }
+ .form-box form input{
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 6px;
+  outline: none;
+  margin-bottom: 20px;  
+ }
+
+input[type="submit"]{
+    border: none;
+    background-color:#033747;
+    color: white;
+    font-size: 18px;
+
+}
+.form-box pre{
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 15px;
+}
+.form-box pre a{
+    text-decoration: none;
+}
+.errorlist{
+    color: rgb(255, 0, 0);
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+#error{
+    color: rgb(255, 0, 0);
+    padding-bottom: 10px;
+}

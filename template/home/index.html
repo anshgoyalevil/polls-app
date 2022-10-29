@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <p>P-Polls</p>
+        </div>
+        <ul>
+            {% if request.user.is_authenticated %}
+            <li><p id="user_id">Hello! {{user.get_username}}</p></li>
+            <li><a href="{% url 'logout' %}?next=/">logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="question_list">
+        <div class="actions">
+            <form method="post" action="{% url 'index' %}">
+                {% csrf_token %}
+                <input type="text" placeholder="search problem by name" name="poll">
+                <button type="submit" id="search">search</button>
+            </form>
+            <button type="button"><a id="create_poll" href="{% url 'create' %}">Create a poll</a></button>
+        </div>
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+            <div id="list_element">
+                <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    Created on: {{question.pub_date}}</a></li>
+            </div>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

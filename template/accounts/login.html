@@ -1,0 +1,40 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/accounts.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <p>P-Polls</p>
+        </div>
+    </nav>
+    <div class="form-box">
+        <form  method="post" action="">
+            {% csrf_token %}
+            <h3>login</h3>
+            <br>
+            <label>
+                {% render_field form.username id="user" placeholder="Username" %}
+            </label>
+            <br>
+            <label>
+                {% render_field form.password id="password" placeholder="Password" %}
+            </label>
+            <br>
+            <input id="login_button" type="submit" value="Login" name="login">
+            <br>
+            {% for error in form.non_field_errors %}
+            <p id="error">{{error}}</p>
+            {% endfor %}
+            <pre id="not_account">Don't have an account? <a id="signup" href="{% url 'register'%}">Register here</a></pre>
+        </form>
+    </div>
+</body>
+</html>

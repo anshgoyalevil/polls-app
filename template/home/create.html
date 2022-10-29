@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create poll</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+    <script type="text/javascript" src="{% static 'home/home.js' %}"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <p>P-Polls</p>
+        </div>
+        <ul>
+            {% if request.user.is_authenticated %}
+            <li><p id="user_id">Hello! {{user.get_username}}</p></li>
+            <li><a href="{% url 'logout' %}?next=/">logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="form-box">
+        <h3>Create Poll</h3>
+        <br>
+        <form method="post" action="">
+            {% csrf_token %}
+                <label>Question</label>
+                <input type="text" name="poll_question" placeholder="write your Question here">
+                <br>
+            <div id="choice_field">
+                <label>Create Choice</label>
+                <input type="text" name="poll_choice1" placeholder="enter a choice">
+                <br>
+            </div>
+            <input id="save_poll" type="submit" value="create poll">
+        </form>
+        <button  onclick="add_more_choice()">Add choice +</button>
+    </div>
+</body>
+</html>

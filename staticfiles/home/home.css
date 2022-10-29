@@ -1,0 +1,243 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #e6e6ef;
+}
+nav{
+   width: 100%;
+   height: 75px;
+   line-height: 75px;
+   padding: 0px 100px;
+   background-image: linear-gradient(#033747,#012733);    
+}
+nav .logo p{
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;    
+}
+nav ul{
+    float: right;
+}
+nav li{
+    display: inline-block;
+    list-style: none;
+}
+nav li p{
+    font-size: 20px;
+    padding: 0px 20px;
+    color: white;   
+}
+nav li a{
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 0px 20px;
+  color: white;
+  text-decoration: none;
+}
+nav li a:hover{
+    color: #e6e6ef;
+    transition: all 0.4s ease 0s;
+}
+
+.question_list ul{
+    padding-top: 2%;
+}
+.question_list li{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    line-height: 50px;
+}
+.question_list a{
+    padding-left: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+}
+#list_element{
+    list-style: none;
+    padding: 6px;
+}
+#list_element:hover{
+    transform: translateX(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+.choice{
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: center;
+}
+.choice h1{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.choice input[type="radio"]{
+    display: none;
+}
+.choice label span{
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    padding: 7px 10px 7px 10px;
+    border-radius: 31px;
+    transition: .25 ease;
+
+}
+.choice label span:hover,input[type="radio"]:checked + span{
+    background-color: #d6d6e5;
+}
+.choice label span::before{
+    content: "";
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: .25 ease;
+    box-shadow: inset 0 0 0 2px #00005c;
+}
+.choice input[type="radio"]:checked + span::before{
+    box-shadow: inset 0 0 0 4px #00005c;
+} 
+.choice input[type="submit"]{
+    margin-top: 10px;
+    padding: 3px;
+    width: 5%;
+    border-radius: 31px;
+    background: none;
+    border: 2px solid black;
+    outline: none;
+}  
+.choice input:hover{
+    background: #00005c;
+    color: white;
+}
+.stats{
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: center;
+}
+.stats h1{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.stats ul{
+    padding: 20px;
+    list-style: none;
+}
+
+.stats p{
+    padding-top: 10px;
+    font-weight: bold;
+}
+.actions{
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+    padding-bottom: 25px;
+}
+.actions form{
+    float: left;
+}
+.actions form button{
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    border: none;
+    border: 1px solid #d6d6e5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.actions form button:hover{
+    background-color: #d6d6e5;
+    color: #00005c;
+    border: 2px solid #00005c;
+}
+.actions form input{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.actions button{
+    float: right;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    border: none;
+    border: 2px solid #00005c;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.actions button:hover{
+    background-color: #d6d6e5;
+    color: #00005c;
+}
+#create_poll{
+    color: white;
+    font-size: 15px;
+    padding-right: 15px;
+}
+#create_poll:hover{
+    background-color: #d6d6e5;
+    color: #00005c;
+}
+.form-box{
+    width: 350px;
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 39%;
+    background-color: white;
+    border-radius: 15px;
+}
+.form-box h3{
+    text-align: center;
+    padding-top: 15px;
+    text-transform: uppercase;
+    font-size: 25px;
+ }
+ .form-box form{
+    width: 300px;
+    margin-left: 25px;
+ }
+ .form-box label{
+    display: flex;
+    padding-bottom: 5px;
+ }
+ .form-box form input{
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 6px;
+  outline: none;
+  margin-bottom: 20px;  
+ }
+ .form-box button{
+    margin-left: 80px;
+    width: 50%;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 20px;  
+ }
+input[type="submit"],button{
+    border: none;
+    background-color:#033747;
+    color: white;
+    font-size: 18px;
+
+}

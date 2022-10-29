@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question detail</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <p>P-Polls</p>
+        </div>
+        <ul>
+            {% if request.user.is_authenticated %}
+            <li><p id="user_id">Hello! {{user.get_username}}</p></li>
+            <li><a href="{% url 'logout' %}?next=/">logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="choice">
+        <form action="{% url 'vote' question.id %}" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend><h1>{{ question.question_text }}</h1></legend>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                {% for choice in question.choice_set.all %}
+                    <label for="choice{{ forloop.counter }}">
+                        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                        <span>{{ choice.choice_text }}</span>
+                    </label>
+                    <br>
+                {% endfor %}
+        </fieldset>
+        <input type="submit" value="Vote">
+        </form> 
+    </div>
+    <div class="stats">
+        <fieldset>
+            <legend><h1>Poll stats</h1></legend>
+            <p>Choice -- Total votes</p>
+            <ul>
+            {% for choice in question.choice_set.all %}
+                <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+            {% endfor %}
+            </ul>
+        </fieldset>
+    </div>
+</body>
+</html>
